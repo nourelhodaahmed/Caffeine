@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.android.caffeine.Screen.Home.composable.CoffeeGhost
 import com.android.caffeine.Screen.Home.composable.Content
 import com.android.caffeine.Screen.Home.composable.TopAppBar
 
@@ -17,6 +18,7 @@ fun Home() {
     ){
         TopAppBar()
         Content(modifier = Modifier.padding(top = 24.dp))
+        CoffeeGhost()
     }
 }
 
