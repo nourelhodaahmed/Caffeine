@@ -9,3 +9,7 @@ val Sniglet = FontFamily(
     Font(R.font.sniglet_regular, FontWeight.Normal),
     Font(R.font.sniglet_extrabold, FontWeight.ExtraBold),
     )
+
+val Urbanist = FontFamily(
+    Font(R.font.urbanist_bold, FontWeight.Bold),
+)

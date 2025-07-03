@@ -1,4 +1,4 @@
-package com.android.caffeine.Screen.Home.composable
+package com.android.caffeine.Screen.home.composable
 
 import com.android.caffeine.R
 import androidx.compose.foundation.Image

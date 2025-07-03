@@ -1,4 +1,4 @@
-package com.android.caffeine.Screen.Home
+package com.android.caffeine.Screen.home
 
 import androidx.lifecycle.ViewModel
 
