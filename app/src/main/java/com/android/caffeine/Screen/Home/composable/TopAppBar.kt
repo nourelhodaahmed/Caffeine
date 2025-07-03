@@ -30,7 +30,7 @@ fun TopAppBar(){
             modifier = Modifier.size(48.dp).clip(CircleShape)
         ){
             Image(
-                painter = painterResource(R.drawable.ic_launcher_background),
+                painter = painterResource(R.drawable.profile_img),
                 contentDescription = null,
                 modifier = Modifier.size(48.dp)
             )
