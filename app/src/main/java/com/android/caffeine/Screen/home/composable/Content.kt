@@ -7,6 +7,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -19,13 +24,20 @@ import androidx.compose.ui.unit.sp
 import com.android.caffeine.ui.theme.HomeContent
 import com.android.caffeine.ui.theme.Sniglet
 import com.android.caffeine.R
+import kotlinx.coroutines.delay
 
 @Composable
 fun Content(
     modifier: Modifier = Modifier,
-    showStars: Boolean = true,
-){
-    Box(modifier = modifier.fillMaxWidth()){
+) {
+    var showStars by remember { mutableStateOf(true) }
+    LaunchedEffect(true) {
+        while (true) {
+            delay(500L)
+            showStars = !showStars
+        }
+    }
+    Box(modifier = modifier.fillMaxWidth()) {
         Text(
             text = "Hocus\n" +
                     "Pocus\n" +
@@ -38,13 +50,14 @@ fun Content(
                 textAlign = TextAlign.Center,
                 letterSpacing = 0.25.sp,
                 lineHeight = 50.sp
-                ),
+            ),
             color = HomeContent,
-            modifier = Modifier.align(Alignment.Center).padding(bottom = 2.dp)
+            modifier = Modifier
+                .align(Alignment.Center)
+                .padding(bottom = 2.dp)
         )
 
-        if (showStars)
-        {
+        if (showStars) {
             Icon(
                 painter = painterResource(R.drawable.star),
                 contentDescription = "",
@@ -78,6 +91,6 @@ fun Content(
 
 @Preview(widthDp = 360)
 @Composable
-private fun ContentPreview(){
+private fun ContentPreview() {
     Content()
 }
