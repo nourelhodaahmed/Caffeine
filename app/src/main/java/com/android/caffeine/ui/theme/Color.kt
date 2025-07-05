@@ -13,5 +13,6 @@ val Pink40 = Color(0xFF7D5260)
 val TopBarButtonBackground = Color(0xFFF5F5F5)
 
 val HomeContent = Color(0xDE1F1F1F)
-val HomeButton = Color(0xFF1F1F1F)
-val HomeButtonContent = Color(0xDEFFFFFF)
+val ActionButton = Color(0xFF1F1F1F)
+val ActionButtonContent = Color(0xDEFFFFFF)
+val ActionButtonShadow = Color(0x3D000000)

@@ -15,7 +15,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -23,8 +22,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.android.caffeine.R
-import com.android.caffeine.ui.theme.HomeButton
-import com.android.caffeine.ui.theme.HomeButtonContent
+import com.android.caffeine.ui.theme.ActionButton
+import com.android.caffeine.ui.theme.ActionButtonContent
+import com.android.caffeine.ui.theme.ActionButtonShadow
 import com.android.caffeine.ui.theme.Urbanist
 
 @Composable
@@ -36,8 +36,8 @@ fun ActionButton(
 ) {
     Row (
         modifier = modifier
-            .shadow(elevation = 12.dp,spotColor = Color(0x3D000000), ambientColor = Color(0x3D000000))
-            .background(color = HomeButton, shape = CircleShape)
+            .shadow(elevation = 12.dp,spotColor = ActionButtonShadow, ambientColor = ActionButtonShadow)
+            .background(color = ActionButton, shape = CircleShape)
             .clip(CircleShape)
             .clickable(onClick = onClick)
             .padding(horizontal = 32.dp, vertical = 16.dp)
@@ -52,13 +52,13 @@ fun ActionButton(
                 fontSize = 16.sp,
                 letterSpacing = 0.25.sp,
             ),
-            color = HomeButtonContent,
+            color = ActionButtonContent,
             modifier = Modifier.align(Alignment.CenterVertically)
         )
         Icon(
             painter = endIcon,
             contentDescription = "",
-            tint = HomeButtonContent,
+            tint = ActionButtonContent,
             modifier = Modifier.size(24.dp)
         )
     }
