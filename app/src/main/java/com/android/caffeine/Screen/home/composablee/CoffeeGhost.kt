@@ -34,7 +34,7 @@ fun CoffeeGhost () {
             }else{
                 ghostPaddingTop = 43.dp
             }
-            delay(500L)
+            delay(700L)
         }
     }
 
