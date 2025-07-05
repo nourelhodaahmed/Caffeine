@@ -29,13 +29,14 @@ import com.android.caffeine.ui.theme.Urbanist
 
 @Composable
 fun TopAppBar(
+    modifier: Modifier = Modifier,
     profileImage: Painter? = null,
     startIcon: Painter? = null,
     title: String? = null,
     endIcon: Painter? = null,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
             .padding(top = 56.dp),
