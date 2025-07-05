@@ -8,12 +8,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.android.caffeine.Screen.home.composable.CoffeeButton
-import com.android.caffeine.Screen.home.composable.CoffeeGhost
-import com.android.caffeine.Screen.home.composable.Content
-import com.android.caffeine.Screen.home.composable.TopAppBar
+import com.android.caffeine.R
+import com.android.caffeine.composable.ActionButton
+import com.android.caffeine.Screen.home.composablee.CoffeeGhost
+import com.android.caffeine.Screen.home.composablee.Content
+import com.android.caffeine.Screen.home.composablee.TopAppBar
 
 @Composable
 fun Home() {
@@ -23,7 +25,10 @@ fun Home() {
         TopAppBar()
         Content(modifier = Modifier.padding(top = 24.dp))
         CoffeeGhost()
-        CoffeeButton(modifier = Modifier
+        ActionButton(
+            text = "bring my coffee",
+            endIcon = painterResource(R.drawable.coffee),
+            modifier = Modifier
             .padding(top = 58.91.dp)
             .align(Alignment.CenterHorizontally)
         )

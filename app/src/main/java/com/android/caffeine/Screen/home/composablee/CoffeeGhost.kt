@@ -1,4 +1,4 @@
-package com.android.caffeine.Screen.home.composable
+package com.android.caffeine.Screen.home.composablee
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -41,12 +41,11 @@ fun CoffeeGhost () {
     val animatedGhostPaddingTop by animateDpAsState(
         targetValue = ghostPaddingTop,
         animationSpec = tween(durationMillis = 800),
-        label = ""
     )
 
     Box(modifier = Modifier.fillMaxWidth()){
         Image(
-            painter = painterResource(R.drawable.coffe_ghost),
+            painter = painterResource(R.drawable.coffe_gost),
             contentDescription = "",
             modifier = Modifier
                 .padding(top = animatedGhostPaddingTop)
