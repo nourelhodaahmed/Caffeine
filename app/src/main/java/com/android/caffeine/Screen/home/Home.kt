@@ -15,14 +15,14 @@ import com.android.caffeine.R
 import com.android.caffeine.composable.ActionButton
 import com.android.caffeine.Screen.home.composablee.CoffeeGhost
 import com.android.caffeine.Screen.home.composablee.Content
-import com.android.caffeine.Screen.home.composablee.TopAppBar
+import com.android.caffeine.composable.TopAppBar
 
 @Composable
 fun Home() {
     Column (
         modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
     ){
-        TopAppBar()
+        TopAppBar(profileImage = painterResource(R.drawable.profile_img), endIcon = painterResource(R.drawable.plus_round))
         Content(modifier = Modifier.padding(top = 24.dp))
         CoffeeGhost()
         ActionButton(
