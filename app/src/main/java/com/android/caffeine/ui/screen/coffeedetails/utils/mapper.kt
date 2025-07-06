@@ -11,7 +11,7 @@ fun caffeieneSizeToIndex(caffeineSize: CaffeineSize):Int{
     }
 }
 
-fun indexTocaffeieneSize(index: Int): CaffeineSize{
+fun indexToCaffeieneSize(index: Int): CaffeineSize{
     return when(index){
         0 -> CaffeineSize.LOW
         1 -> CaffeineSize.MEDIUM

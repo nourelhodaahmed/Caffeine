@@ -20,6 +20,9 @@ class CoffeeDetailsViewModel() : ViewModel() {
         val newCaffeineSizes = _state.value.coffeeCup.caffeineSize.toMutableList()
         if (newCaffeineSizes.contains(size)) newCaffeineSizes.remove(size)
         else newCaffeineSizes.add(size)
-        _state.update { it.copy(coffeeCup = it.coffeeCup.copy(caffeineSize = newCaffeineSizes)) }
+        _state.update { it.copy(
+            coffeeCup = it.coffeeCup.copy(caffeineSize = newCaffeineSizes),
+            selectedCaffeine = size
+        ) }
     }
 }

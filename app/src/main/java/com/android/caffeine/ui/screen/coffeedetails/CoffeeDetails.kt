@@ -32,6 +32,8 @@ import com.android.caffeine.ui.screen.coffeedetails.component.PopUpCoffeeButton
 import com.android.caffeine.ui.screen.coffeedetails.component.PopUpSizeButton
 import com.android.caffeine.ui.screen.coffeedetails.utils.caffeieneSizeToIndex
 import com.android.caffeine.ui.screen.coffeedetails.utils.cupSizeToIndex
+import com.android.caffeine.ui.screen.coffeedetails.utils.indexToCupSize
+import com.android.caffeine.ui.screen.coffeedetails.utils.indexToCaffeieneSize
 import com.android.caffeine.ui.theme.PopUpTextDescription
 import com.android.caffeine.ui.theme.Urbanist
 import org.koin.androidx.compose.koinViewModel
@@ -39,9 +41,10 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun CoffeeDetails(viewModel: CoffeeDetailsViewModel = koinViewModel()) {
     val coffeeCup = viewModel.state.collectAsState().value.coffeeCup
+    val selectedCaffeine = viewModel.state.collectAsState().value.selectedCaffeine
 
     var CupSizeButtonIndex = cupSizeToIndex(coffeeCup.cupSize)
-    var caffeineSizeIndex = caffeieneSizeToIndex(coffeeCup.caffeineSize[0])
+    var caffeineSizeIndex = caffeieneSizeToIndex(selectedCaffeine)
 
     Column(
         modifier = Modifier
@@ -62,7 +65,7 @@ fun CoffeeDetails(viewModel: CoffeeDetailsViewModel = koinViewModel()) {
         Column(modifier = Modifier.width(IntrinsicSize.Max)) {
             PopUpButtons(
                 selectedButtonIndex = CupSizeButtonIndex,
-                onClickButton = { CupSizeButtonIndex = it },
+                onClickButton = { viewModel.onChangeCupSize(indexToCupSize(it)) },
             ) { selectedIndex, onClick ->
                 val buttons = listOf("S", "M", "L")
                 buttons.forEachIndexed { index, text ->
@@ -77,7 +80,7 @@ fun CoffeeDetails(viewModel: CoffeeDetailsViewModel = koinViewModel()) {
             PopUpButtons(
                 modifier = Modifier.padding(top = 16.dp),
                 selectedButtonIndex = caffeineSizeIndex,
-                onClickButton = { caffeineSizeIndex = it },
+                onClickButton = { viewModel.onChangeCaffeineSize(indexToCaffeieneSize(it)) },
             ) { selectedIndex, onClick ->
                 val buttons = listOf(
                     painterResource(R.drawable.coffee_icon_round),
