@@ -64,7 +64,7 @@ fun CoffeeCupDetails(
             modifier = Modifier.padding(top = 64.dp)
         )
         Image(
-            painter = coffeeCup.img,
+            painter = painterResource(coffeeCup.img),
             contentDescription = null,
             modifier = Modifier.align(Alignment.Center).width(cupWidth).height(cupHeight)
         )
@@ -85,7 +85,7 @@ private fun CoffeeCupDetailsPreview(){
     val coffeeCup = CoffeeCup(
         id = 0,
         type = "Macchiato",
-        img = painterResource(R.drawable.black),
+        img = R.drawable.black,
         cupSize = CupSize.L
     )
     CoffeeCupDetails(coffeeCup)

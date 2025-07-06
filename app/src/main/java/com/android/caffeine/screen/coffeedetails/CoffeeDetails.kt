@@ -43,7 +43,7 @@ fun CoffeeDetails() {
     val coffeeCup = CoffeeCup(
         id = 0,
         type = "Macchiato",
-        img = painterResource(R.drawable.black),
+        img = R.drawable.black,
         cupSize = CupSize.L
     )
 
