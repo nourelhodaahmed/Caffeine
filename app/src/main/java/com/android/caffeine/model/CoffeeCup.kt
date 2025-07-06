@@ -5,5 +5,5 @@ data class CoffeeCup(
     val type: String,
     val img: Int,
     val cupSize: CupSize = CupSize.S,
-    val caffeineSize: List<CaffeineSize> = listOf(),
+    val caffeineSize: List<CaffeineSize> = listOf(CaffeineSize.LOW),
 )
