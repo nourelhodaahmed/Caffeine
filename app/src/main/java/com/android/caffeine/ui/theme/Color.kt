@@ -16,3 +16,8 @@ val HomeContent = Color(0xDE1F1F1F)
 val ActionButton = Color(0xFF1F1F1F)
 val ActionButtonContent = Color(0xDEFFFFFF)
 val ActionButtonShadow = Color(0x3D000000)
+
+val PopUpButtonsBackground = Color(0xFFF5F5F5)
+val PopUpButtonBackground = Color(0xFF7C351B)
+val PopUpButtonSelectedText = Color(0xDEFFFFFF)
+val PopUpButtonNonSelectedText = Color(0x991F1F1F)
