@@ -1,7 +1,6 @@
-package com.android.caffeine.screen.coffeedetails.composable
+package com.android.caffeine.screen.coffeedetails.component
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -11,34 +10,24 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Text
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.android.caffeine.ui.theme.PopUpButtonBackground
-import com.android.caffeine.ui.theme.PopUpButtonNonSelectedText
 import com.android.caffeine.ui.theme.PopUpButtonSelectedText
-import com.android.caffeine.ui.theme.Urbanist
 
 @Composable
-fun PopUpSizeButton(
+fun PopUpCoffeeButton(
     isSelected: Boolean,
     index: Int,
-    text: String,
+    icon: Painter,
     onClickButton: (Int) -> Unit,
 ) {
-    val textColor by animateColorAsState(
-        targetValue = if (isSelected) PopUpButtonSelectedText else PopUpButtonNonSelectedText,
-        animationSpec = tween(durationMillis = 300)
-    )
     Box(
         modifier = Modifier
             .size(40.dp)
@@ -49,27 +38,25 @@ fun PopUpSizeButton(
                 onClick = { onClickButton(index) }
             ),
         contentAlignment = Alignment.Center
-    ) {
+    ){
         AnimatedVisibility(
             visible = isSelected,
             enter = fadeIn(animationSpec = tween(durationMillis = 700)),
             exit = fadeOut(animationSpec = tween(durationMillis = 700))
-        ) {
+        ){
             Box(
                 modifier = Modifier
                     .size(40.dp)
-                    .background(color = PopUpButtonBackground, shape = CircleShape)
-            )
+                    .background(color = PopUpButtonBackground, shape = CircleShape),
+                contentAlignment = Alignment.Center
+            ){
+                Icon(
+                    painter = icon,
+                    contentDescription = null,
+                    tint = PopUpButtonSelectedText,
+                    modifier = Modifier.size(19.5.dp)
+                )
+            }
         }
-        Text(
-            text = text,
-            style = TextStyle(
-                fontFamily = Urbanist,
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-            ),
-            color = textColor,
-            textAlign = TextAlign.Center,
-        )
     }
 }

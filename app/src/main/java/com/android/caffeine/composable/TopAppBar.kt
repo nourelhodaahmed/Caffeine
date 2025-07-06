@@ -51,6 +51,9 @@ fun TopAppBar(
                     .clip(CircleShape)
             )
         }
+        if (startIcon != null) {
+            TopAppBarIcon(startIcon)
+        }
         Box(modifier = Modifier.weight(1f)){
             if (title != null){
                 Text(
@@ -64,9 +67,6 @@ fun TopAppBar(
                     color = HomeContent,
                 )
             }
-        }
-        if (startIcon != null) {
-            TopAppBarIcon(startIcon)
         }
         if (endIcon != null) {
             TopAppBarIcon(endIcon)

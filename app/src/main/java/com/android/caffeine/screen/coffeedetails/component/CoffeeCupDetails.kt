@@ -1,4 +1,4 @@
-package com.android.caffeine.screen.coffeedetails.composable
+package com.android.caffeine.screen.coffeedetails.component
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween

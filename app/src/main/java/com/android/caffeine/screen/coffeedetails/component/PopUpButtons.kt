@@ -1,4 +1,4 @@
-package com.android.caffeine.screen.coffeedetails.composable
+package com.android.caffeine.screen.coffeedetails.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -35,6 +35,7 @@ fun PopUpButtons(
         content(selectedButtonIndex, onClickButton)
     }
 }
+
 @Preview
 @Composable
 private fun PopUpButtonsPreview() {
