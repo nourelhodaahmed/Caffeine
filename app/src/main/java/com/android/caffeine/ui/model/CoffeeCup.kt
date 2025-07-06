@@ -1,4 +1,4 @@
-package com.android.caffeine.model
+package com.android.caffeine.ui.model
 
 data class CoffeeCup(
     val id: Int,

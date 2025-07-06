@@ -1,7 +1,7 @@
-package com.android.caffeine.screen.coffeedetails.utils
+package com.android.caffeine.ui.screen.coffeedetails.utils
 
-import com.android.caffeine.model.CaffeineSize
-import com.android.caffeine.model.CupSize
+import com.android.caffeine.ui.model.CaffeineSize
+import com.android.caffeine.ui.model.CupSize
 
 fun caffeieneSizeToIndex(caffeineSize: CaffeineSize):Int{
     return when(caffeineSize){

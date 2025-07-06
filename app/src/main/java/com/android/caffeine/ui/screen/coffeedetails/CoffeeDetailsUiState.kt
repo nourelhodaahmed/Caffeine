@@ -1,7 +1,7 @@
-package com.android.caffeine.screen.coffeedetails
+package com.android.caffeine.ui.screen.coffeedetails
 
 import com.android.caffeine.R
-import com.android.caffeine.model.CoffeeCup
+import com.android.caffeine.ui.model.CoffeeCup
 
 data class CoffeeDetailsUiState(
     val coffeeCup: CoffeeCup = CoffeeCup(

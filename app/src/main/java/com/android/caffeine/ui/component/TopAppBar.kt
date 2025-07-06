@@ -1,4 +1,4 @@
-package com.android.caffeine.component
+package com.android.caffeine.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

@@ -1,4 +1,4 @@
-package com.android.caffeine.screen.coffeedetails
+package com.android.caffeine.ui.screen.coffeedetails
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,14 +24,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.android.caffeine.R
-import com.android.caffeine.component.ActionButton
-import com.android.caffeine.component.TopAppBar
-import com.android.caffeine.screen.coffeedetails.component.CoffeeCupDetails
-import com.android.caffeine.screen.coffeedetails.component.PopUpButtons
-import com.android.caffeine.screen.coffeedetails.component.PopUpCoffeeButton
-import com.android.caffeine.screen.coffeedetails.component.PopUpSizeButton
-import com.android.caffeine.screen.coffeedetails.utils.caffeieneSizeToIndex
-import com.android.caffeine.screen.coffeedetails.utils.cupSizeToIndex
+import com.android.caffeine.ui.component.ActionButton
+import com.android.caffeine.ui.component.TopAppBar
+import com.android.caffeine.ui.screen.coffeedetails.component.CoffeeCupDetails
+import com.android.caffeine.ui.screen.coffeedetails.component.PopUpButtons
+import com.android.caffeine.ui.screen.coffeedetails.component.PopUpCoffeeButton
+import com.android.caffeine.ui.screen.coffeedetails.component.PopUpSizeButton
+import com.android.caffeine.ui.screen.coffeedetails.utils.caffeieneSizeToIndex
+import com.android.caffeine.ui.screen.coffeedetails.utils.cupSizeToIndex
 import com.android.caffeine.ui.theme.PopUpTextDescription
 import com.android.caffeine.ui.theme.Urbanist
 import org.koin.androidx.compose.koinViewModel

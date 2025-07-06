@@ -1,8 +1,8 @@
-package com.android.caffeine.screen.coffeedetails
+package com.android.caffeine.ui.screen.coffeedetails
 
 import androidx.lifecycle.ViewModel
-import com.android.caffeine.model.CaffeineSize
-import com.android.caffeine.model.CupSize
+import com.android.caffeine.ui.model.CaffeineSize
+import com.android.caffeine.ui.model.CupSize
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

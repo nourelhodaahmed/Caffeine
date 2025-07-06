@@ -1,4 +1,4 @@
-package com.android.caffeine.screen.home
+package com.android.caffeine.ui.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -14,10 +14,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.caffeine.R
-import com.android.caffeine.component.ActionButton
-import com.android.caffeine.screen.home.component.CoffeeGhost
-import com.android.caffeine.screen.home.component.Content
-import com.android.caffeine.component.TopAppBar
+import com.android.caffeine.ui.component.ActionButton
+import com.android.caffeine.ui.screen.home.component.CoffeeGhost
+import com.android.caffeine.ui.screen.home.component.Content
+import com.android.caffeine.ui.component.TopAppBar
 
 @Composable
 fun Home() {

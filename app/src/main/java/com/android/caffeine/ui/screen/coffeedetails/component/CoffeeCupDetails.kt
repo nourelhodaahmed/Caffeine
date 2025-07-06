@@ -1,4 +1,4 @@
-package com.android.caffeine.screen.coffeedetails.component
+package com.android.caffeine.ui.screen.coffeedetails.component
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -21,8 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.android.caffeine.R
-import com.android.caffeine.model.CoffeeCup
-import com.android.caffeine.model.CupSize
+import com.android.caffeine.ui.model.CoffeeCup
+import com.android.caffeine.ui.model.CupSize
 import com.android.caffeine.ui.theme.HomeContent
 import com.android.caffeine.ui.theme.Urbanist
 

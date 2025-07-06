@@ -1,4 +1,4 @@
-package com.android.caffeine.model
+package com.android.caffeine.ui.model
 
 enum class CaffeineSize {
     LOW,
