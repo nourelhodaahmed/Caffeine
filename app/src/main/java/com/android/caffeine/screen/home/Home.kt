@@ -1,4 +1,4 @@
-package com.android.caffeine.Screen.home
+package com.android.caffeine.screen.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,8 +13,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.caffeine.R
 import com.android.caffeine.composable.ActionButton
-import com.android.caffeine.Screen.home.composablee.CoffeeGhost
-import com.android.caffeine.Screen.home.composablee.Content
+import com.android.caffeine.screen.home.composablee.CoffeeGhost
+import com.android.caffeine.screen.home.composablee.Content
 import com.android.caffeine.composable.TopAppBar
 
 @Composable

@@ -1,4 +1,4 @@
-package com.android.caffeine.Screen.coffeedetails.composable
+package com.android.caffeine.screen.coffeedetails.composable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

@@ -1,4 +1,4 @@
-package com.android.caffeine.Screen.home.composablee
+package com.android.caffeine.screen.home.composablee
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth

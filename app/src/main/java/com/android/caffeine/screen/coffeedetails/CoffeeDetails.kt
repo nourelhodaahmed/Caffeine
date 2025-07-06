@@ -1,4 +1,4 @@
-package com.android.caffeine.Screen.coffeedetails
+package com.android.caffeine.screen.coffeedetails
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
