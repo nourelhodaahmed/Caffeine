@@ -33,27 +33,42 @@ fun CoffeeCupDetails(
 ) {
     val cupWidth by animateDpAsState(
         targetValue = when(coffeeCup.cupSize){
-            CupSize.S -> 118.94.dp
-            CupSize.M -> 159.42.dp
-            CupSize.L -> 199.9.dp
+            CupSize.S -> 153.64.dp
+            CupSize.M -> 199.4.dp
+            CupSize.L -> 245.17.dp
         },
         animationSpec = tween(durationMillis = 300)
     )
 
     val cupHeight by animateDpAsState(
         targetValue = when(coffeeCup.cupSize){
-            CupSize.S -> 150.dp
-            CupSize.M -> 197.dp
-            CupSize.L -> 244.dp
+            CupSize.S -> 188.dp
+            CupSize.M -> 244.dp
+            CupSize.L -> 300.dp
         },
         animationSpec = tween(durationMillis = 300)
     )
+
+    val logoSize by animateDpAsState(
+        targetValue = when(coffeeCup.cupSize){
+            CupSize.S -> 40.dp
+            CupSize.M -> 64.dp
+            CupSize.L -> 66.dp
+        },
+        animationSpec = tween(durationMillis = 300)
+    )
+
+    val sizeText = when(coffeeCup.cupSize){
+        CupSize.S -> 150
+        CupSize.M -> 200
+        CupSize.L -> 400
+    }
 
     Box(
         modifier = modifier.fillMaxWidth().height(341.dp)
     ){
         Text(
-            text = "200 ML",
+            text = sizeText.toString() + " ML",
             style = TextStyle(
                 fontFamily = Urbanist,
                 fontWeight = FontWeight.Medium,
@@ -74,7 +89,7 @@ fun CoffeeCupDetails(
             modifier = Modifier
                 .align(Alignment.Center)
                 .padding(top = 40.dp)
-                .size(64.dp)
+                .size(logoSize)
         )
     }
 }
