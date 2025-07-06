@@ -1,4 +1,4 @@
-package com.android.caffeine.composable
+package com.android.caffeine.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

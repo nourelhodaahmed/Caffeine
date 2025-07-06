@@ -1,4 +1,4 @@
-package com.android.caffeine.composable
+package com.android.caffeine.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

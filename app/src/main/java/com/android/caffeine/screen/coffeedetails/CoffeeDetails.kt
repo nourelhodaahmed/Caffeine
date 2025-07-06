@@ -27,8 +27,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.android.caffeine.R
-import com.android.caffeine.composable.ActionButton
-import com.android.caffeine.composable.TopAppBar
+import com.android.caffeine.component.ActionButton
+import com.android.caffeine.component.TopAppBar
 import com.android.caffeine.model.CoffeeCup
 import com.android.caffeine.model.CupSize
 import com.android.caffeine.screen.coffeedetails.component.CoffeeCupDetails

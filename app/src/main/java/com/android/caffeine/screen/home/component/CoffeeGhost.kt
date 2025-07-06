@@ -1,4 +1,4 @@
-package com.android.caffeine.screen.home.composablee
+package com.android.caffeine.screen.home.component
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween

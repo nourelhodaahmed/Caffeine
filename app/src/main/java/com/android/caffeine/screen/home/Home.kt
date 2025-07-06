@@ -14,10 +14,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.android.caffeine.R
-import com.android.caffeine.composable.ActionButton
-import com.android.caffeine.screen.home.composablee.CoffeeGhost
-import com.android.caffeine.screen.home.composablee.Content
-import com.android.caffeine.composable.TopAppBar
+import com.android.caffeine.component.ActionButton
+import com.android.caffeine.screen.home.component.CoffeeGhost
+import com.android.caffeine.screen.home.component.Content
+import com.android.caffeine.component.TopAppBar
 
 @Composable
 fun Home() {
