@@ -1,5 +1,6 @@
 package com.android.caffeine.screen.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -8,6 +9,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -20,7 +22,11 @@ import com.android.caffeine.composable.TopAppBar
 @Composable
 fun Home() {
     Column (
-        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = White)
+            .padding(horizontal = 16.dp)
+            .verticalScroll(rememberScrollState())
     ){
         TopAppBar(profileImage = painterResource(R.drawable.profile_img), endIcon = painterResource(R.drawable.plus_round))
         Content(modifier = Modifier.padding(top = 24.dp))
