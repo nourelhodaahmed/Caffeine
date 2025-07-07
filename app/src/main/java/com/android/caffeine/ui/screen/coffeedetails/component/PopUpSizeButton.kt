@@ -24,9 +24,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.android.caffeine.ui.theme.PopUpButtonBackground
+import com.android.caffeine.ui.theme.PopUpButtonDropShadow
 import com.android.caffeine.ui.theme.PopUpButtonNonSelectedText
 import com.android.caffeine.ui.theme.PopUpButtonSelectedText
 import com.android.caffeine.ui.theme.Urbanist
+import com.android.caffeine.ui.utils.dropShadow
 
 @Composable
 fun PopUpSizeButton(
@@ -57,6 +59,13 @@ fun PopUpSizeButton(
         ) {
             Box(
                 modifier = Modifier
+                    .dropShadow(
+                        shape = CircleShape,
+                        color = PopUpButtonDropShadow,
+                        offsetY = 8.dp,
+                        blur = 16.dp,
+                        alpha = 0.5f
+                    )
                     .size(40.dp)
                     .background(color = PopUpButtonBackground, shape = CircleShape)
             )
