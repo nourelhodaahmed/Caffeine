@@ -10,5 +10,6 @@ data class CoffeeDetailsUiState(
         type = "",
         img = R.drawable.black,
     ),
-    val selectedCaffeine: CaffeineSize = CaffeineSize.LOW
+    val selectedCaffeine: CaffeineSize = CaffeineSize.LOW,
+    val isBringCoffeeButtonClicked: Boolean = false
 )

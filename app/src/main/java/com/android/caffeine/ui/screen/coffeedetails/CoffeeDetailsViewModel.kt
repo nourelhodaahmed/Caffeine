@@ -30,4 +30,8 @@ class CoffeeDetailsViewModel() : ViewModel() {
             selectedCaffeine = size
         ) }
     }
+
+    fun onBringCoffeeButtonClicked(){
+        _state.update { it.copy(isBringCoffeeButtonClicked = true) }
+    }
 }

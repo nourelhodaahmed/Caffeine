@@ -62,6 +62,8 @@ fun CoffeeDetails(
     }
     val coffeeCup = viewModel.state.collectAsState().value.coffeeCup
     val selectedCaffeine = viewModel.state.collectAsState().value.selectedCaffeine
+    val isBringCoffeeButtonClicked = viewModel.state.collectAsState().value.isBringCoffeeButtonClicked
+
 
     var CupSizeButtonIndex = cupSizeToIndex(coffeeCup.cupSize)
     var caffeineSizeIndex = caffeieneSizeToIndex(selectedCaffeine)
@@ -94,79 +96,111 @@ fun CoffeeDetails(
             }
         }
 
-        TopAppBar(
-            modifier = Modifier.align(Alignment.TopCenter),
-            startIcon = painterResource(R.drawable.arrow_left_round),
-            title = coffeeCup.type,
-        )
+        AnimatedVisibility(
+            visible = !isBringCoffeeButtonClicked,
+            enter = slideInVertically(animationSpec = tween(1000))
+                    + fadeIn(animationSpec = tween(1000)),
+
+            exit = slideOutVertically(animationSpec = tween(1000))
+                    + fadeOut(animationSpec = tween(1000)),
+            modifier = Modifier.align(Alignment.TopCenter)
+        ){
+            TopAppBar(
+                modifier = Modifier.align(Alignment.TopCenter),
+                startIcon = painterResource(R.drawable.arrow_left_round),
+                title = coffeeCup.type,
+            )
+        }
 
         CoffeeCupDetails(
             modifier = Modifier.padding(top = 120.dp).align(Alignment.TopCenter),
             coffeeCup = coffeeCup
         )
 
-        Column(
+        Box(
             modifier = Modifier
-            .width(IntrinsicSize.Max)
-            .padding(bottom = 198.dp)
-            .align(Alignment.BottomCenter)
-        ) {
-            PopUpButtons(
-                selectedButtonIndex = CupSizeButtonIndex,
-                onClickButton = { viewModel.onChangeCupSize(indexToCupSize(it)) },
-            ) { selectedIndex, onClick ->
-                val buttons = listOf("S", "M", "L")
-                buttons.forEachIndexed { index, text ->
-                    PopUpSizeButton(
-                        isSelected = selectedIndex == index,
-                        index = index,
-                        text = text,
-                        onClickButton = onClick,
-                    )
-                }
-            }
-            PopUpButtons(
-                modifier = Modifier.padding(top = 16.dp),
-                selectedButtonIndex = caffeineSizeIndex,
-                onClickButton = { viewModel.onChangeCaffeineSize(indexToCaffeieneSize(it)) },
-            ) { selectedIndex, onClick ->
-                val buttons = listOf(
-                    painterResource(R.drawable.coffee_icon_round),
-                    painterResource(R.drawable.coffee_icon_round),
-                    painterResource(R.drawable.coffee_icon_round)
-                )
-                buttons.forEachIndexed { index, icon ->
-                    PopUpCoffeeButton(
-                        isSelected = selectedIndex == index,
-                        index = index,
-                        icon = icon,
-                        onClickButton = onClick,
-                    )
-                }
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                listOf("Low", "Medium", "High").forEach {
-                    Text(
-                        text = it,
-                        style = TextStyle(
-                            fontFamily = Urbanist,
-                            fontWeight = FontWeight.Medium,
-                            fontSize = 10.sp,
-                            letterSpacing = 0.25.sp,
-                        ),
-                        color = PopUpTextDescription,
-                    )
-                }
-            }
-        }
+                .fillMaxWidth()
+                .align(Alignment.TopCenter)
+                .padding(top = 460.dp),
+        ){
+            AnimatedVisibility(
+                visible = !isBringCoffeeButtonClicked,
+                enter = slideInVertically(
+                    animationSpec = tween(1000),
+                    initialOffsetY = { fullHeight -> fullHeight }
+                ) + fadeIn(animationSpec = tween(1000)),
 
-        ActionButton(
-            text = "bring my coffee",
-            endIcon = painterResource(R.drawable.coffee),
-            modifier = Modifier.padding(bottom = 50.dp).align(Alignment.BottomCenter)
-        )
+                exit = slideOutVertically(
+                    animationSpec = tween(1000),
+                    targetOffsetY = { fullHeight -> fullHeight }
+                ) + fadeOut(animationSpec = tween(1000)),
+                modifier = Modifier.align(Alignment.TopCenter)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .width(IntrinsicSize.Max)
+                        .align(Alignment.Center)
+                ) {
+                    PopUpButtons(
+                        selectedButtonIndex = CupSizeButtonIndex,
+                        onClickButton = { viewModel.onChangeCupSize(indexToCupSize(it)) },
+                    ) { selectedIndex, onClick ->
+                        val buttons = listOf("S", "M", "L")
+                        buttons.forEachIndexed { index, text ->
+                            PopUpSizeButton(
+                                isSelected = selectedIndex == index,
+                                index = index,
+                                text = text,
+                                onClickButton = onClick,
+                            )
+                        }
+                    }
+                    PopUpButtons(
+                        modifier = Modifier.padding(top = 16.dp),
+                        selectedButtonIndex = caffeineSizeIndex,
+                        onClickButton = { viewModel.onChangeCaffeineSize(indexToCaffeieneSize(it)) },
+                    ) { selectedIndex, onClick ->
+                        val buttons = listOf(
+                            painterResource(R.drawable.coffee_icon_round),
+                            painterResource(R.drawable.coffee_icon_round),
+                            painterResource(R.drawable.coffee_icon_round)
+                        )
+                        buttons.forEachIndexed { index, icon ->
+                            PopUpCoffeeButton(
+                                isSelected = selectedIndex == index,
+                                index = index,
+                                icon = icon,
+                                onClickButton = onClick,
+                            )
+                        }
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        listOf("Low", "Medium", "High").forEach {
+                            Text(
+                                text = it,
+                                style = TextStyle(
+                                    fontFamily = Urbanist,
+                                    fontWeight = FontWeight.Medium,
+                                    fontSize = 10.sp,
+                                    letterSpacing = 0.25.sp,
+                                ),
+                                color = PopUpTextDescription,
+                            )
+                        }
+                    }
+                }
+
+                ActionButton(
+                    text = "bring my coffee",
+                    endIcon = painterResource(R.drawable.coffee),
+                    modifier = Modifier.padding(top = 234.dp),
+                    onClick = {viewModel.onBringCoffeeButtonClicked()}
+                )
+            }
+
+        }
     }
 }
