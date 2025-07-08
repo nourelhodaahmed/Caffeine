@@ -215,9 +215,16 @@ fun CoffeeDetails(
                     animationSpec = tween(1000),
                     targetOffsetY = { fullHeight -> fullHeight }
                 ) + fadeOut(animationSpec = tween(1000)),
-                modifier = Modifier.align(Alignment.TopCenter)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.TopCenter)
             ){
-                Column {
+                Column (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 37.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
                     AnimatedWaveImage()
                     CoffeeProgressComponent(Modifier.padding(top = 37.dp))
                 }

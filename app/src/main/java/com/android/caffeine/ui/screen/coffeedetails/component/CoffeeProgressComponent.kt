@@ -9,6 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -70,11 +72,12 @@ fun CoffeeProgressComponent(modifier: Modifier = Modifier) {
                     .height(40.dp)
                     .wrapContentSize(Alignment.Center),
                 style = TextStyle(
-                    fontFamily = Urbanist,
+                    fontFamily = FontFamily(Font(R.font.sniglet_extrabold)),
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 32.sp,
                     letterSpacing = 0.25.sp,
                 ),
+
                 color = Color(0xFF7C351B)
             )
 
@@ -99,7 +102,7 @@ fun CoffeeProgressComponent(modifier: Modifier = Modifier) {
                     .height(40.dp)
                     .wrapContentSize(Alignment.Center),
                 style = TextStyle(
-                    fontFamily = Urbanist,
+                    fontFamily = FontFamily(Font(R.font.sniglet_extrabold)),
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 32.sp,
                     letterSpacing = 0.25.sp,
@@ -128,7 +131,7 @@ fun CoffeeProgressComponent(modifier: Modifier = Modifier) {
                     .height(40.dp)
                     .wrapContentSize(Alignment.Center),
                 style = TextStyle(
-                    fontFamily = Urbanist,
+                    fontFamily = FontFamily(Font(R.font.sniglet_extrabold)),
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 32.sp,
                     letterSpacing = 0.25.sp,
