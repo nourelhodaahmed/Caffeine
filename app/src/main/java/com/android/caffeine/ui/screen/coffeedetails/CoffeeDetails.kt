@@ -1,5 +1,6 @@
 package com.android.caffeine.ui.screen.coffeedetails
 
+import AnimatedWaveImage
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -49,6 +50,7 @@ import com.android.caffeine.ui.screen.coffeedetails.utils.indexToCupSize
 import com.android.caffeine.ui.screen.coffeedetails.utils.indexToCaffeieneSize
 import com.android.caffeine.ui.theme.PopUpTextDescription
 import com.android.caffeine.ui.theme.Urbanist
+import com.example.coffeine.CoffeeProgressComponent
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -140,6 +142,7 @@ fun CoffeeDetails(
                     modifier = Modifier
                         .width(IntrinsicSize.Max)
                         .align(Alignment.Center)
+                        .padding(start = 30.dp)
                 ) {
                     PopUpButtons(
                         selectedButtonIndex = CupSizeButtonIndex,
@@ -199,6 +202,25 @@ fun CoffeeDetails(
                     modifier = Modifier.padding(top = 234.dp),
                     onClick = {viewModel.onBringCoffeeButtonClicked()}
                 )
+            }
+
+            AnimatedVisibility(
+                visible = isBringCoffeeButtonClicked,
+                enter = slideInVertically(
+                    animationSpec = tween(1000),
+                    initialOffsetY = { fullHeight -> fullHeight }
+                ) + fadeIn(animationSpec = tween(1000)),
+
+                exit = slideOutVertically(
+                    animationSpec = tween(1000),
+                    targetOffsetY = { fullHeight -> fullHeight }
+                ) + fadeOut(animationSpec = tween(1000)),
+                modifier = Modifier.align(Alignment.TopCenter)
+            ){
+                Column {
+                    AnimatedWaveImage()
+                    CoffeeProgressComponent(Modifier.padding(top = 37.dp))
+                }
             }
 
         }
