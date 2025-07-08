@@ -71,4 +71,7 @@ dependencies {
 
     //navigation
     implementation(libs.navigation.compose)
+
+    implementation (libs.coil.compose)
+    implementation (libs.accompanist.pager)
 }

@@ -14,6 +14,8 @@ ksp = "2.1.0-1.0.29"
 navigation = "2.8.0-alpha08"
 kotlinxSerializationJson = "1.8.1"
 kotlinxDatetime = "0.3.3"
+accompanistPager = "0.28.0"
+coilCompose = "2.7.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +41,12 @@ koin-ksp = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-an
 
 #navigation
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+#coil
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+
+#pager
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistPager" }
 
 #kotlin serialization
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
