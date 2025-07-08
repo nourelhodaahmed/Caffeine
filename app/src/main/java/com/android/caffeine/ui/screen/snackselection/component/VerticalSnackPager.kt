@@ -18,7 +18,9 @@ import com.android.caffeine.data.snacks
 import kotlin.math.abs
 
 @Composable
-fun VerticalSnackPager() {
+fun VerticalSnackPager(
+    onItemClick : (String) -> Unit
+) {
     val pagerState = rememberPagerState(initialPage = 1, pageCount = { snacks.size })
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
     val itemWidth = 260.38.dp
@@ -46,10 +48,12 @@ fun VerticalSnackPager() {
 
         CardSnack(
             imageRes = snacks[index].img,
+            snackId = snacks[index].id,
             contentDescription = snacks[index].name,
             scale = scale,
             rotationZ = rotationZ,
             offsetY = offsetY,
+            onClick = {id -> onItemClick(id)}
         )
     }
 }
@@ -57,5 +61,5 @@ fun VerticalSnackPager() {
 @Preview(showBackground = true)
 @Composable
 private fun SnackSelectionScreenPreview() {
-    VerticalSnackPager()
+    VerticalSnackPager({})
 }

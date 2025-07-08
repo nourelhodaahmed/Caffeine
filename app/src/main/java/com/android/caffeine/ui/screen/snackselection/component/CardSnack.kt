@@ -5,6 +5,7 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -26,20 +27,23 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun CardSnack(
     imageRes: Int,
+    snackId: Int,
     contentDescription: String,
     scale: Float,
     rotationZ: Float,
     offsetY: Dp,
-    modifier: Modifier = Modifier
+    onClick: (String) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
             .offset(y = offsetY)
             .graphicsLayer(
-                scaleX = scale*1.5f,
+                scaleX = scale * 1.5f,
                 scaleY = scale,
                 rotationZ = rotationZ,
             )
+            .clickable(onClick = { onClick(snackId.toString()) })
     ) {
         Box(
             modifier = Modifier

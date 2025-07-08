@@ -14,16 +14,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.android.caffeine.R
+import com.android.caffeine.data.snacks
 import com.android.caffeine.ui.component.ActionButton
 import com.android.caffeine.ui.component.TopAppBar
 import com.android.caffeine.ui.screen.snackdetails.component.BonAppetit
 import com.android.caffeine.ui.screen.snackdetails.component.CoffeePromoBanner
 
 @Composable
-fun SnakeDetails(snakeId : Int) {
+fun SnackDetails(
+    snackId : String,
+    navController: NavController
+) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -41,7 +45,7 @@ fun SnakeDetails(snakeId : Int) {
 
             Spacer(modifier = Modifier.height(24.dp))
             Image(
-                painter = painterResource(R.drawable.cupcake),
+                painter = painterResource(snacks[snackId.toInt()].img),
                 contentDescription = "Custom Image",
                 modifier = Modifier
                     .size(width = 300.dp, height = 310.dp)

@@ -16,17 +16,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.android.caffeine.ui.component.TopAppBar
 import com.android.caffeine.ui.screen.snackselection.component.VerticalSnackPager
 import com.android.caffeine.ui.theme.Urbanist
 import com.android.caffeine.R
+import com.android.caffeine.ui.navigation.Destination
 
 
 @Composable
-fun SnackSelection() {
+fun SnackSelection(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -50,13 +51,13 @@ fun SnackSelection() {
                 color = Color.Black,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
-            VerticalSnackPager()
+            VerticalSnackPager(
+                onItemClick = {id ->
+                    navController.navigate(Destination.SnackDetailsScreen.createRoute(id)) {
+                        popUpTo(Destination.SnackSelectionScreen.route) { inclusive = true }
+                    }
+                }
+            )
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun SnackSelectionPreview() {
-    SnackSelection()
 }

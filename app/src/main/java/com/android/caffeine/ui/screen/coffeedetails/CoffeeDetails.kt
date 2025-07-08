@@ -38,6 +38,7 @@ import com.android.caffeine.R
 import com.android.caffeine.ui.component.ActionButton
 import com.android.caffeine.ui.component.TopAppBar
 import com.android.caffeine.model.CupSize
+import com.android.caffeine.ui.navigation.Destination
 import com.android.caffeine.ui.screen.coffeedetails.component.CoffeeCupDetails
 import com.android.caffeine.ui.screen.coffeedetails.component.DrippingCoffee
 import com.android.caffeine.ui.screen.coffeedetails.component.PopUpButtons
@@ -51,6 +52,7 @@ import com.android.caffeine.ui.screen.coffeedetails.utils.indexToCaffeieneSize
 import com.android.caffeine.ui.theme.PopUpTextDescription
 import com.android.caffeine.ui.theme.Urbanist
 import com.example.coffeine.CoffeeProgressComponent
+import kotlinx.coroutines.delay
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -62,9 +64,19 @@ fun CoffeeDetails(
     LaunchedEffect(true) {
         viewModel.setCoffeeCup(cupId.toInt())
     }
+
     val coffeeCup = viewModel.state.collectAsState().value.coffeeCup
     val selectedCaffeine = viewModel.state.collectAsState().value.selectedCaffeine
     val isBringCoffeeButtonClicked = viewModel.state.collectAsState().value.isBringCoffeeButtonClicked
+
+    LaunchedEffect(isBringCoffeeButtonClicked) {
+        if (isBringCoffeeButtonClicked){
+            delay(4000)
+            navController.navigate(Destination.SnackSelectionScreen.route) {
+                popUpTo(Destination.CoffeeDetailsScreen.route) { inclusive = true }
+            }
+        }
+    }
 
 
     var CupSizeButtonIndex = cupSizeToIndex(coffeeCup.cupSize)
