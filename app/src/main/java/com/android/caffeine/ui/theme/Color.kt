@@ -25,3 +25,5 @@ val PopUpButtonSelectedText = Color(0xDEFFFFFF)
 val PopUpButtonNonSelectedText = Color(0x991F1F1F)
 
 val PopUpTextDescription = Color(0xFF1F1F1F)
+
+val GrayText = Color(0xFFB3B3B3)
