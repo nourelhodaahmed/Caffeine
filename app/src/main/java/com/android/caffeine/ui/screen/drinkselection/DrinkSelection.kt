@@ -14,15 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.android.caffeine.R
 import com.android.caffeine.ui.component.ActionButton
 import com.android.caffeine.ui.component.TopAppBar
+import com.android.caffeine.ui.navigation.Destination
 import com.android.caffeine.ui.screen.utils.drinksList
 import com.example.coffeine.screen.drinkselection.composable.Content
 import com.example.coffeine.screen.drinkselection.composable.DrinksSlider
 
 @Composable
-fun DrinkSelection() {
+fun DrinkSelection(navController: NavController = rememberNavController()) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -35,7 +38,7 @@ fun DrinkSelection() {
                 modifier = Modifier.padding(horizontal = 16.dp)
             ) {
                 TopAppBar(
-                    startIcon = painterResource(R.drawable.profile_img),
+                    profileImage = painterResource(R.drawable.profile_img),
                     endIcon = painterResource(R.drawable.plus_round),
                 )
                 Content()
@@ -44,7 +47,11 @@ fun DrinkSelection() {
             DrinksSlider(
                 modifier = Modifier.padding(top = 16.dp),
                 drinksList = drinksList,
-                onClick = {}
+                onClick = { id ->
+                    navController.navigate(Destination.CoffeeDetailsScreen.createRoute(id)) {
+                        popUpTo(Destination.CoffeeDetailsScreen.route) { inclusive = true }
+                    }
+                }
             )
         }
         ActionButton(
@@ -60,6 +67,6 @@ fun DrinkSelection() {
 
 @Preview(showBackground = true, widthDp = 400, heightDp = 1040)
 @Composable
-fun DrinkSelectionPreview() {
+private fun DrinkSelectionPreview() {
     DrinkSelection()
 }

@@ -21,6 +21,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -29,9 +30,9 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.android.caffeine.R
 import com.android.caffeine.ui.component.ActionButton
 import com.android.caffeine.ui.component.TopAppBar
@@ -51,7 +52,14 @@ import com.android.caffeine.ui.theme.Urbanist
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun CoffeeDetails(viewModel: CoffeeDetailsViewModel = koinViewModel()) {
+fun CoffeeDetails(
+    navController: NavController,
+    cupId: String,
+    viewModel: CoffeeDetailsViewModel = koinViewModel()
+) {
+    LaunchedEffect(true) {
+        viewModel.setCoffeeCup(cupId.toInt())
+    }
     val coffeeCup = viewModel.state.collectAsState().value.coffeeCup
     val selectedCaffeine = viewModel.state.collectAsState().value.selectedCaffeine
 
@@ -161,10 +169,4 @@ fun CoffeeDetails(viewModel: CoffeeDetailsViewModel = koinViewModel()) {
             modifier = Modifier.padding(bottom = 50.dp).align(Alignment.BottomCenter)
         )
     }
-}
-
-@Preview
-@Composable
-private fun CoffeeDetailsPreview() {
-    CoffeeDetails()
 }

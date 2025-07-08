@@ -13,14 +13,17 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.android.caffeine.R
 import com.android.caffeine.ui.component.ActionButton
 import com.android.caffeine.ui.screen.home.component.CoffeeGhost
 import com.android.caffeine.ui.screen.home.component.Content
 import com.android.caffeine.ui.component.TopAppBar
+import com.android.caffeine.ui.navigation.Destination
 
 @Composable
-fun Home() {
+fun Home(navController: NavController = rememberNavController()) {
     Column (
         modifier = Modifier
             .fillMaxSize()
@@ -32,11 +35,16 @@ fun Home() {
         Content(modifier = Modifier.padding(top = 24.dp))
         CoffeeGhost()
         ActionButton(
-            text = "bring my coffee",
-            endIcon = painterResource(R.drawable.coffee),
             modifier = Modifier
             .padding(top = 58.91.dp)
-            .align(Alignment.CenterHorizontally)
+            .align(Alignment.CenterHorizontally),
+            text = "bring my coffee",
+            endIcon = painterResource(R.drawable.coffee),
+            onClick = {
+                navController.navigate(Destination.DrinkSelectionScreen.route) {
+                    popUpTo(Destination.HomeScreen.route) { inclusive = true }
+                }
+            }
         )
     }
 }

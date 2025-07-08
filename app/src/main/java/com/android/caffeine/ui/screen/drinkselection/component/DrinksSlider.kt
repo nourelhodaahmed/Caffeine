@@ -90,7 +90,7 @@ fun DrinkCard(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick(coffeeCup.type) },
+            .clickable { onClick(coffeeCup.id.toString()) },
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
