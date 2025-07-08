@@ -49,7 +49,6 @@ fun VerticalSnackPager(
         CardSnack(
             imageRes = snacks[index].img,
             snackId = snacks[index].id,
-            contentDescription = snacks[index].name,
             scale = scale,
             rotationZ = rotationZ,
             offsetY = offsetY,

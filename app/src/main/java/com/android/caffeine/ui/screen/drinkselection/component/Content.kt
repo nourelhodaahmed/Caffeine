@@ -30,7 +30,7 @@ fun Content(){
     )
 
     Text(
-        text = "Hamsa ☀",
+        text = "Nour ☀",
         style = TextStyle(
             fontFamily = Urbanist,
             fontWeight = FontWeight.Bold,

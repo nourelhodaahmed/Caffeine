@@ -3,10 +3,8 @@ package com.android.caffeine.ui.screen.snackdetails.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,35 +28,27 @@ fun CoffeePromoBanner(modifier: Modifier = Modifier) {
             .fillMaxWidth()
             .padding(horizontal = 8.dp)
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-
-        ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Image(
                 painter = painterResource(id = R.drawable.coffee_beans),
-                contentDescription = "Coffee Bean",
-                modifier = Modifier.size(32.dp)
+                contentDescription = null,
+                modifier = Modifier.padding(end = 6.dp).size(32.dp)
             )
-            Spacer(modifier = Modifier.width(6.dp))
-            Box(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = "More Espresso, Less Depresso",
-                    style = TextStyle(
-                        fontFamily = Sniglet,
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 20.sp,
-                        lineHeight = 20.sp,
-                        letterSpacing = 0.25.sp,
-                        color = PopUpButtonBackground
-                    ),
-                    modifier = Modifier.align(Alignment.Center)
-                )
-            }
-            Spacer(modifier = Modifier.width(6.dp))
+            Text(
+                text = "More Espresso, Less Depresso",
+                style = TextStyle(
+                    fontFamily = Sniglet,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 20.sp,
+                    letterSpacing = 0.25.sp,
+                    color = PopUpButtonBackground
+                ),
+                maxLines = 1,
+            )
             Image(
                 painter = painterResource(id = R.drawable.coffee_beans),
                 contentDescription = "Coffee Bean",
-                modifier = Modifier.size(32.dp)
+                modifier = Modifier.padding(start = 6.dp).size(32.dp)
             )
         }
     }

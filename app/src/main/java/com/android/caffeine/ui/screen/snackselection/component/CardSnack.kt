@@ -18,7 +18,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -28,7 +27,6 @@ import androidx.compose.ui.unit.dp
 fun CardSnack(
     imageRes: Int,
     snackId: Int,
-    contentDescription: String,
     scale: Float,
     rotationZ: Float,
     offsetY: Dp,
@@ -64,17 +62,13 @@ fun CardSnack(
                     alpha = 1f
                 )
                 .animateContentSize(
-                    animationSpec = tween(
-                        durationMillis = 1500,
-                        easing = FastOutSlowInEasing
-                    )
+                    animationSpec = tween(durationMillis = 1500, easing = FastOutSlowInEasing)
                 ),
             contentAlignment = Alignment.Center
         ) {
             Image(
                 painter = painterResource(id = imageRes),
-                contentDescription = contentDescription,
-                contentScale = ContentScale.Fit,
+                contentDescription = null,
                 modifier = Modifier
                     .width(134.23.dp)
                     .height(139.dp)

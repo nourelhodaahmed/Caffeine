@@ -3,6 +3,7 @@ package com.android.caffeine.ui.screen.snackdetails.component
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,12 +33,12 @@ fun BonAppetit() {
             fontWeight = FontWeight.Bold,
             fontSize = 22.sp,
             letterSpacing = 0.25.sp,
-            color = HomeContent
+            color = HomeContent,
+            modifier = Modifier.padding(end = 8.dp)
         )
-        Spacer(modifier = Modifier.width(8.dp))
         Icon(
             painter = painterResource(id = R.drawable.magic_round),
-            contentDescription = "Magic Wand Icon",
+            contentDescription = null,
        )
     }
 }

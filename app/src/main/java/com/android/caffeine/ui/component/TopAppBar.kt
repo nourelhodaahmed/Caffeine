@@ -2,6 +2,7 @@ package com.android.caffeine.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -34,6 +35,8 @@ fun TopAppBar(
     startIcon: Painter? = null,
     title: String? = null,
     endIcon: Painter? = null,
+    onStartIconClicked : () -> Unit = {},
+    onEndIconClicked : () -> Unit = {},
 ) {
     Row(
         modifier = modifier
@@ -52,7 +55,7 @@ fun TopAppBar(
             )
         }
         if (startIcon != null) {
-            TopAppBarIcon(startIcon)
+            TopAppBarIcon(startIcon, onStartIconClicked)
         }
         Box(modifier = Modifier.weight(1f)){
             if (title != null){
@@ -69,17 +72,19 @@ fun TopAppBar(
             }
         }
         if (endIcon != null) {
-            TopAppBarIcon(endIcon)
+            TopAppBarIcon(endIcon, onEndIconClicked)
         }
     }
 }
 
 @Composable
-private fun TopAppBarIcon(Icon: Painter) {
+private fun TopAppBarIcon(Icon: Painter, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .size(48.dp)
             .background(color = TopBarButtonBackground, shape = CircleShape)
+            .clip(CircleShape)
+            .clickable(onClick = onClick)
     ) {
         Icon(
             painter = Icon,
