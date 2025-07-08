@@ -19,7 +19,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import com.android.caffeine.ui.theme.PopUpButtonBackground
+import com.android.caffeine.ui.theme.PopUpButtonDropShadow
 import com.android.caffeine.ui.theme.PopUpButtonSelectedText
+import com.android.caffeine.ui.utils.dropShadow
 
 @Composable
 fun PopUpCoffeeButton(
@@ -31,7 +33,6 @@ fun PopUpCoffeeButton(
     Box(
         modifier = Modifier
             .size(40.dp)
-            .clip(CircleShape)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null,
@@ -47,7 +48,14 @@ fun PopUpCoffeeButton(
             Box(
                 modifier = Modifier
                     .size(40.dp)
-                    .background(color = PopUpButtonBackground, shape = CircleShape),
+                    .background(color = PopUpButtonBackground, shape = CircleShape)
+                    .dropShadow(
+                        shape = CircleShape,
+                        color = PopUpButtonDropShadow,
+                        offsetY = 8.dp,
+                        blur = 16.dp,
+                        alpha = 0.5f
+                    ),
                 contentAlignment = Alignment.Center
             ){
                 Icon(
