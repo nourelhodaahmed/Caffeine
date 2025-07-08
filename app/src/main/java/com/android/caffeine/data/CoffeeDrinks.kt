@@ -1,7 +1,7 @@
-package com.android.caffeine.ui.screen.utils
+package com.android.caffeine.data
 
 import com.android.caffeine.R
-import com.android.caffeine.ui.model.CoffeeCup
+import com.android.caffeine.model.CoffeeCup
 
 val drinksList = listOf(
     CoffeeCup(id = 0, img = R.drawable.black, type = "Black"),

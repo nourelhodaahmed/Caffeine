@@ -14,23 +14,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import androidx.compose.ui.zIndex
-import com.android.caffeine.R
+import com.android.caffeine.data.snacks
 import kotlin.math.abs
 
 @Composable
 fun VerticalSnackPager() {
-    val images = listOf(
-        R.drawable.chocolate to "Chocolate",
-        R.drawable.corso to "Muffin",
-        R.drawable.cookies to "Cookies",
-        R.drawable.chocolate to "Chocolate",
-        R.drawable.corso to "Muffin",
-        R.drawable.cookies to "Cookies",
-        R.drawable.chocolate to "Chocolate",
-        R.drawable.corso to "Muffin",
-        R.drawable.cookies to "Cookies"
-    )
-    val pagerState = rememberPagerState(initialPage = 1, pageCount = { images.size })
+    val pagerState = rememberPagerState(initialPage = 1, pageCount = { snacks.size })
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
     val itemWidth = 260.38.dp
     val contentPadding = (screenWidth - itemWidth) / 2
@@ -56,8 +45,8 @@ fun VerticalSnackPager() {
         val offsetY = (pageOffset * 70.dp).coerceIn((-160).dp, 160.dp)
 
         CardSnack(
-            imageRes = images[index].first,
-            contentDescription = images[index].second,
+            imageRes = snacks[index].img,
+            contentDescription = snacks[index].name,
             scale = scale,
             rotationZ = rotationZ,
             offsetY = offsetY,

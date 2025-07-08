@@ -1,6 +1,6 @@
 package com.android.caffeine.ui.screen.coffeedetails.utils
 
-import com.android.caffeine.ui.model.CaffeineSize
+import com.android.caffeine.model.CaffeineSize
 
 val caffeineListSize = listOf(
     CaffeineSize.LOW,

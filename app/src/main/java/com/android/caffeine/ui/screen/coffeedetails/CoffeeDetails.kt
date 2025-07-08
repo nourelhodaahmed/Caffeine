@@ -37,7 +37,7 @@ import androidx.navigation.NavController
 import com.android.caffeine.R
 import com.android.caffeine.ui.component.ActionButton
 import com.android.caffeine.ui.component.TopAppBar
-import com.android.caffeine.ui.model.CupSize
+import com.android.caffeine.model.CupSize
 import com.android.caffeine.ui.screen.coffeedetails.component.CoffeeCupDetails
 import com.android.caffeine.ui.screen.coffeedetails.component.DrippingCoffee
 import com.android.caffeine.ui.screen.coffeedetails.component.PopUpButtons

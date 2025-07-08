@@ -34,7 +34,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import com.android.caffeine.R
-import com.android.caffeine.ui.model.CoffeeCup
+import com.android.caffeine.model.CoffeeCup
 import com.android.caffeine.ui.theme.Urbanist
 
 @Composable

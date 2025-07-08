@@ -20,7 +20,7 @@ import com.android.caffeine.R
 import com.android.caffeine.ui.component.ActionButton
 import com.android.caffeine.ui.component.TopAppBar
 import com.android.caffeine.ui.navigation.Destination
-import com.android.caffeine.ui.screen.utils.drinksList
+import com.android.caffeine.data.drinksList
 import com.example.coffeine.screen.drinkselection.composable.Content
 import com.example.coffeine.screen.drinkselection.composable.DrinksSlider
 

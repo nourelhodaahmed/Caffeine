@@ -23,7 +23,7 @@ import com.android.caffeine.ui.screen.snackdetails.component.BonAppetit
 import com.android.caffeine.ui.screen.snackdetails.component.CoffeePromoBanner
 
 @Composable
-fun SnakeDetails() {
+fun SnakeDetails(snakeId : Int) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -60,10 +60,4 @@ fun SnakeDetails() {
             onClick = { }
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun SnakeDetailsPreview() {
-    SnakeDetails()
 }
