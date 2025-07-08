@@ -36,7 +36,14 @@ fun SnackSelection(navController: NavController) {
                 .padding(horizontal = 16.dp)
                 .verticalScroll(rememberScrollState()),
         ) {
-            TopAppBar(startIcon = painterResource(R.drawable.cancel_round))
+            TopAppBar(
+                startIcon = painterResource(R.drawable.cancel_round),
+                onStartIconClicked = {
+                    navController.navigate(Destination.HomeScreen.route) {
+                        popUpTo(Destination.SnackSelectionScreen.route) { inclusive = true }
+                    }
+                }
+            )
             Text(
                 text = "Take your snack",
                 fontFamily = Urbanist,
