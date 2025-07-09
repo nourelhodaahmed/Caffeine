@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.text.TextStyle
 import com.android.caffeine.ui.theme.Urbanist
 
 @Composable
@@ -41,7 +42,7 @@ fun CoffeeSwitch(
 ) {
     val toggleBackgroundColor by updateTransition(selected)
         .animateColor(
-            transitionSpec = { tween(300, easing = FastOutSlowInEasing) },
+            transitionSpec = { tween(500, easing = FastOutSlowInEasing) },
         ) { if (it) Color(0xFF7C351B) else Color(0xFFFFEEE7) }
 
     Row(
@@ -49,21 +50,17 @@ fun CoffeeSwitch(
             .background(toggleBackgroundColor, CircleShape)
             .clipToBounds()
     ) {
-
         AnimatedContent(
             targetState = selected,
             transitionSpec = {
-
                 val slideIn  = slideInHorizontally(
                     initialOffsetX = { if (targetState)  it else -it},
-                    animationSpec  = tween(300, easing = FastOutSlowInEasing)
+                    animationSpec  = tween(500, easing = FastOutSlowInEasing)
                 )
-
                 val slideOut = slideOutHorizontally(
                     targetOffsetX = { if (targetState)  it else -it},
-                    animationSpec = tween(300, easing = FastOutSlowInEasing)
+                    animationSpec = tween(500, easing = FastOutSlowInEasing)
                 )
-
                 slideIn togetherWith slideOut using SizeTransform(clip = true)
 
             },
@@ -73,11 +70,11 @@ fun CoffeeSwitch(
                 horizontalArrangement = Arrangement.Center
             ) {
                 if (isOn) {
-                    CoffeeIcon(onToggle, coffeeTop)
-                    CoffeeLabel("ON", Color(0x99FFFFFF))
+                    CoffeeTopImage(onToggle, coffeeTop)
+                    CoffeeOnOrOff("ON", Color(0x99FFFFFF))
                 } else {
-                    CoffeeIcon(onToggle, coffeeTop)
-                    CoffeeLabel("OFF", Color(0x99000000))
+                    CoffeeTopImage(onToggle, coffeeTop)
+                    CoffeeOnOrOff("OFF", Color(0x99000000))
                 }
             }
         }
@@ -85,30 +82,31 @@ fun CoffeeSwitch(
 }
 
 @Composable
-private fun CoffeeIcon(onToggle: () -> Unit, coffeeTop: Int) {
+private fun CoffeeTopImage(onToggle: () -> Unit, coffeeTop: Int) {
     Image(
         painter = painterResource(coffeeTop),
         contentDescription = null,
         modifier = Modifier
+            .size(40.dp)
             .clickable(
             interactionSource = remember { MutableInteractionSource() },
             indication = null,
             onClick = onToggle
         )
-            .size(40.dp)
     )
 }
 
 @Composable
-private fun CoffeeLabel(text: String, textColor: Color) {
+private fun CoffeeOnOrOff(text: String, textColor: Color) {
     Text(
         text = text,
-        fontFamily = Urbanist,
-        fontWeight = FontWeight.Bold,
-        fontSize = 10.sp,
+        style = TextStyle(
+            fontFamily = Urbanist,
+            fontWeight = FontWeight.Bold,
+            fontSize = 10.sp,
+            letterSpacing = 0.25.sp,
+        ),
         color = textColor,
-        lineHeight = 10.sp,
-        letterSpacing = 0.25.sp,
         modifier = Modifier.padding(horizontal = 14.dp)
     )
 }
