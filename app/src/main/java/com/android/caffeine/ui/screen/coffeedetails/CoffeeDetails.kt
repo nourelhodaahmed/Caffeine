@@ -122,6 +122,11 @@ fun CoffeeDetails(
                 modifier = Modifier.align(Alignment.TopCenter),
                 startIcon = painterResource(R.drawable.arrow_left_round),
                 title = coffeeCup.type,
+                onStartIconClicked = {
+                    navController.navigate(Destination.DrinkSelectionScreen.route) {
+                        popUpTo(Destination.CoffeeDetailsScreen.route) { inclusive = true }
+                    }
+                }
             )
         }
 
