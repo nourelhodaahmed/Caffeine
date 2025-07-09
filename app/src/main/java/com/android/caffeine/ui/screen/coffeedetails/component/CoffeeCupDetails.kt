@@ -101,6 +101,8 @@ private fun CoffeeCupDetailsPreview(){
         id = 0,
         type = "Macchiato",
         img = R.drawable.black,
+        coverImg = R.drawable.black_cover,
+        topImg = R.drawable.black_top,
         cupSize = CupSize.L
     )
     CoffeeCupDetails(coffeeCup)
