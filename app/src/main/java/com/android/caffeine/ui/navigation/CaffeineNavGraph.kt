@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.android.caffeine.ui.navigation.routes.CoffeeDetailsRoute
+import com.android.caffeine.ui.navigation.routes.CoffeeTakeWayRoute
 import com.android.caffeine.ui.navigation.routes.DrinkSelectionRoute
 import com.android.caffeine.ui.navigation.routes.HomeRoute
 import com.android.caffeine.ui.navigation.routes.SnackDetailsRoute
@@ -17,5 +18,6 @@ fun CaffeineNavGraph(navController: NavHostController) {
         CoffeeDetailsRoute(navController)
         SnackSelectionRoute(navController)
         SnackDetailsRoute(navController)
+        CoffeeTakeWayRoute(navController)
     }
 }

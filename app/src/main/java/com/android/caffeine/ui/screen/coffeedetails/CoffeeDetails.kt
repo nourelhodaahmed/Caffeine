@@ -72,12 +72,11 @@ fun CoffeeDetails(
     LaunchedEffect(isBringCoffeeButtonClicked) {
         if (isBringCoffeeButtonClicked){
             delay(4000)
-            navController.navigate(Destination.SnackSelectionScreen.route) {
+            navController.navigate(Destination.CoffeeTakeWayScreen.createRoute(cupId)) {
                 popUpTo(Destination.CoffeeDetailsScreen.route) { inclusive = true }
             }
         }
     }
-
 
     var CupSizeButtonIndex = cupSizeToIndex(coffeeCup.cupSize)
     var caffeineSizeIndex = caffeieneSizeToIndex(selectedCaffeine)

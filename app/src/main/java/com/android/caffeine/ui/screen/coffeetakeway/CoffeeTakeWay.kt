@@ -17,6 +17,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,23 +28,32 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.android.caffeine.R
 import com.android.caffeine.ui.component.ActionButton
 import com.android.caffeine.ui.component.TopAppBar
+import com.android.caffeine.ui.navigation.Destination
 import com.android.caffeine.ui.screen.coffeetakeway.component.CoffeeCover
 import com.android.caffeine.ui.screen.coffeetakeway.component.CoffeeReady
 import kotlinx.coroutines.delay
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun CoffeeTakeWay() {
-
+fun CoffeeTakeWay(
+    cupId: String,
+    navController: NavController,
+    viewModel: CoffeeTakeWayViewModel = koinViewModel()
+) {
     var showItems by remember { mutableStateOf(false) }
 
     LaunchedEffect(true) {
+        viewModel.setCoffeeCup(cupId.toInt())
         delay(1000L)
         showItems = true
     }
 
+    val coffeeCup = viewModel.state.collectAsState().value.coffeeCup
 
     Box(
         modifier = Modifier
@@ -63,7 +73,12 @@ fun CoffeeTakeWay() {
         ) {
             TopAppBar(
                 modifier = Modifier.align(Alignment.TopCenter),
-                startIcon = painterResource(R.drawable.cancel_round)
+                startIcon = painterResource(R.drawable.cancel_round),
+                onStartIconClicked = {
+                    navController.navigate(Destination.DrinkSelectionScreen.route) {
+                        popUpTo(Destination.CoffeeTakeWayScreen.route) { inclusive = true }
+                    }
+                }
             )
             CoffeeReady(modifier = Modifier
                 .align(Alignment.TopCenter)
@@ -97,7 +112,7 @@ fun CoffeeTakeWay() {
                 .align(Alignment.TopCenter)
         ) {
             CoffeeCover(
-                coverImage = R.drawable.black_cover,
+                coverImage = coffeeCup.coverImg,
                 modifier = Modifier.align(Alignment.TopCenter)
             )
         }
@@ -119,7 +134,12 @@ fun CoffeeTakeWay() {
                     .padding(bottom = 50.dp)
                     .align(Alignment.BottomCenter),
                 text = "Take snack",
-                endIcon = painterResource(R.drawable.arrow_right_round)
+                endIcon = painterResource(R.drawable.arrow_right_round),
+                onClick = {
+                    navController.navigate(Destination.SnackSelectionScreen.route) {
+                        popUpTo(Destination.CoffeeTakeWayScreen.route) { inclusive = true }
+                    }
+                }
             )
         }
     }
@@ -128,5 +148,5 @@ fun CoffeeTakeWay() {
 @Preview
 @Composable
 private fun CoffeeTakeWayPreview() {
-    CoffeeTakeWay()
+    CoffeeTakeWay("0", rememberNavController())
 }

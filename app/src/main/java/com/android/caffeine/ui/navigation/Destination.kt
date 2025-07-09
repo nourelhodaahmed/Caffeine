@@ -10,4 +10,7 @@ sealed class Destination(val route: String) {
     object SnackDetailsScreen : Destination("SnackDetailsScreen/{snackId}") {
         fun createRoute(snackId: String) = "SnackDetailsScreen/$snackId"
     }
+    object CoffeeTakeWayScreen : Destination("CoffeeTakeWayScreen/{coffeeId}") {
+        fun createRoute(coffeeId: String) = "CoffeeTakeWayScreen/$coffeeId"
+    }
 }
